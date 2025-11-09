@@ -6,6 +6,8 @@ import ErrorPage from "../components/ErrorPage";
 import AllFoods from "../pages/AllFoods";
 import Gallery from "../pages/Gallery";
 import AboutUs from "../components/AboutUs";
+import Resister from "../pages/Resister";
+import Login from "../pages/Login";
 // import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
@@ -18,19 +20,30 @@ const router = createBrowserRouter([
         path: "/",
         Component: Home,
       },
+      {
+        path: "/allfoods",
+        Component: AllFoods,
+      },
+
+      {
+        path: "/gallery",
+        Component: Gallery,
+      },
+      {
+        path: "/aboutus",
+        Component: AboutUs,
+      },
+
+      {
+        path: "/resister",
+        Component: Resister,
+      },
+
+      {
+        path: "/login",
+        Component: Login,
+      },
     ],
-  },
-  {
-    path: "/allfoods",
-    Component: AllFoods,
-  },
-  {
-    path: "/gallery",
-    Component: Gallery,
-  },
-  {
-    path: "/aboutus",
-    Component: AboutUs,
   },
 ]);
 

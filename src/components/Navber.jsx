@@ -4,17 +4,22 @@ import { Link } from "react-router";
 const Navber = () => {
   return (
     <div>
-      <div className="bg-base-100 font-poppins flex lg:flex-row flex-col gap-4 justify-between items-center font-poppins">
+      <div className="bg-base-100 font-poppins mt-5 flex lg:flex-row flex-col gap-4 justify-between items-center font-poppins">
         <div className="">
           <a className=" font-bold text-3xl">
             Restro<span className="text-[#EA6A12]">Biz</span>{" "}
           </a>
         </div>
 
-        <div className="flex flex-row gap-3 font-playfairDisplay ">
+        <div className="flex flex-row gap-2 font-playfairDisplay ">
           <button className="btn btn-ghost">
             <Link to="/">
               <p className="font-semibold text-lg ">Home</p>
+            </Link>
+          </button>
+          <button className="btn btn-ghost">
+            <Link to="/aboutus">
+              <p className="font-semibold text-lg ">About</p>
             </Link>
           </button>
           <button className="btn btn-ghost">
@@ -37,7 +42,7 @@ const Navber = () => {
             <Link to="/login" className="hidden md:block mr-4">
               Login
             </Link>
-            <Link to="/kali" className="hidden md:block mr-4">
+            <Link to="/resister" className="hidden md:block mr-4">
               Register
             </Link>
           </>
