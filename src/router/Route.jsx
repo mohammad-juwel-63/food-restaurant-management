@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import ErrorPage from "../components/ErrorPage";
 import AllFoods from "../pages/AllFoods";
 import Gallery from "../pages/Gallery";
+import AboutUs from "../components/AboutUs";
 // import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/gallery",
     Component: Gallery,
+  },
+  {
+    path: "/aboutus",
+    Component: AboutUs,
   },
 ]);
 

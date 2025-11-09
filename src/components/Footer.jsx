@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <div className="font-poppins">
       <footer className="p-8 md:p-10 bg-[#191923] text-base-content  text-white">
         <nav className="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-6">
-          <a className="link link-hover hover:text-[#EA6A12]">About us</a>
+          <Link to="/aboutus">
+            <a className="link link-hover hover:text-[#EA6A12]">About us</a>
+          </Link>
+
           <a className="link link-hover hover:text-[#EA6A12]">Contact</a>
           <a className="link link-hover hover:text-[#EA6A12]">Jobs</a>
           <a className="link link-hover hover:text-[#EA6A12]">Address</a>

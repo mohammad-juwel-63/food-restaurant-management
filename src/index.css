@@ -5,4 +5,17 @@
 
 @theme {
   --font-poppins: "Poppins", sans-serif;
+  --color-brand-light: #fff7ed;
+  --color-brand: #f97316;
+  --color-brand-dark: #ea580c;
+
+  --bg-gradient-brand: linear-gradient(
+    to bottom,
+    var(--color-brand-light),
+    #ffffff
+  );
+}
+
+.bg-gradient-brand {
+  background-image: var(--bg-gradient-brand);
 }

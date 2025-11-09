@@ -24,9 +24,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="my-5 bg-[#191923] py-8 px-4">
+    <div className="my-5 bg-gradient-to-b from-orange-50 to-white py-8 px-4">
       <Toaster position="top-center" reverseOrder={false} />
-      <h1 className="font-poppins text-4xl font-semibold text-center text-white mb-8">
+      <h1 className="font-poppins text-4xl font-semibold text-center text-black mb-8">
         Contact Us
       </h1>
       <form
@@ -39,7 +39,7 @@ const ContactUs = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="grow bg-transparent text-white focus:outline-none"
+            className="grow bg-transparent text-white focus:outline-none placeholder-black"
             placeholder="Name"
           />
         </label>
@@ -50,7 +50,7 @@ const ContactUs = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="grow bg-transparent text-white focus:outline-none"
+            className="grow bg-transparent text-white focus:outline-none placeholder-black"
             placeholder="Email"
           />
         </label>
@@ -58,7 +58,7 @@ const ContactUs = () => {
         <div>
           <label
             htmlFor="message"
-            className="block text-xl font-medium text-white mb-1"
+            className="block text-xl font-medium text-black mb-1"
           >
             Message
           </label>

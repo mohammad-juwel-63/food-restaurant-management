@@ -3,11 +3,12 @@ import React from "react";
 const OurChefs = () => {
   return (
     <div>
-      <section className="bg-[#191923] font-poppins px-6 py-16">
+      <section className="bg-gradient-brand bg-gradient-brand font-poppins px-6 py-16">
         <div className="">
-          <h2 className="text-3xl font-semibold text-center mb-12 text-white font-playfairDisplay">
+          <h2 className="text-3xl font-semibold text-center mb-6 text-black font-playfairDisplay">
             Meet Our Chefs
           </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-poppins text-justify">
             <div className="chef-card bg-white rounded-lg shadow-lg overflow-hidden object-cover">
               <img
