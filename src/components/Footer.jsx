@@ -10,9 +10,11 @@ const Footer = () => {
             <a className="link link-hover hover:text-[#EA6A12]">About us</a>
           </Link>
 
-          <a className="link link-hover hover:text-[#EA6A12]">Contact</a>
-          <a className="link link-hover hover:text-[#EA6A12]">Jobs</a>
-          <a className="link link-hover hover:text-[#EA6A12]">Address</a>
+          <Link to='/contact'><a className="link link-hover hover:text-[#EA6A12]">Contact</a></Link>
+
+          <Link to="/address">
+            <a className="link link-hover hover:text-[#EA6A12]">Address</a>
+          </Link>
         </nav>
 
         <nav className="flex flex-col md:flex-row justify-center items-center gap-4 mb-6">

@@ -3,6 +3,16 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router";
 
 const Register = () => {
+  const handleresister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    console.log({ name, email, password, photo });
+  };
   return (
     <div>
       <Helmet>
@@ -18,7 +28,7 @@ const Register = () => {
             Sign up to get started with RestroBiz
           </p>
 
-          <form className="space-y-4">
+          <form onSubmit={handleresister} className="space-y-4">
             <div>
               <label className="block mb-1 text-sm font-medium text-gray-700">
                 Full Name

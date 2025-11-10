@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router";
+import lotti from "../assets/loginlotti.json";
+import Lottie from "lottie-react";
 
 const Login = () => {
   return (
@@ -10,6 +12,9 @@ const Login = () => {
       </Helmet>
 
       <div className="min-h-screen flex items-center justify-center bg-white font-poppins px-4">
+        <div className="w-96 mr-5">
+          <Lottie animationData={lotti} loop={true} />
+        </div>
         <div className="w-full max-w-md bg-white shadow-lg rounded-xl border border-gray-100 p-8">
           <h2 className="text-3xl font-semibold text-center text-[#EA6A12] mb-2">
             Welcome Back

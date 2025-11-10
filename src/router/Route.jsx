@@ -8,6 +8,8 @@ import Gallery from "../pages/Gallery";
 import AboutUs from "../components/AboutUs";
 import Resister from "../pages/Resister";
 import Login from "../pages/Login";
+import AddressPage from "../components/AddressPage";
+import Contact from "../pages/Contact";
 // import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
@@ -29,9 +31,20 @@ const router = createBrowserRouter([
         path: "/gallery",
         Component: Gallery,
       },
+
+      // footer component route
       {
         path: "/aboutus",
         Component: AboutUs,
+      },
+      {
+        path: "/address",
+        Component: AddressPage,
+      },
+
+      {
+        path: "/contact",
+        Component: Contact,
       },
 
       {
