@@ -1,10 +1,29 @@
-import React from "react";
+import React, { use } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router";
 import lotti from "../assets/loginlotti.json";
 import Lottie from "lottie-react";
+import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
 
 const Login = () => {
+  const { signInUser } = use(AuthContexts);
+
+  const handlelogin = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    // console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
   return (
     <div>
       <Helmet>
@@ -23,7 +42,7 @@ const Login = () => {
             Log in to continue your journey with RestroBiz
           </p>
 
-          <form className="space-y-4">
+          <form onSubmit={handlelogin} className="space-y-4">
             <div>
               <label className="block mb-1 text-sm font-medium text-gray-700">
                 Email

@@ -1,17 +1,29 @@
-import React from "react";
+import React, { use } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router";
+import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
 
 const Register = () => {
+  const { createUser } = use(AuthContexts);
+
   const handleresister = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
+    // const photo = form.photo.value;
 
-    console.log({ name, email, password, photo });
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("user created");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
+      });
   };
   return (
     <div>
