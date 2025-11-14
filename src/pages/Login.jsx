@@ -1,11 +1,15 @@
 import React, { use } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import lotti from "../assets/loginlotti.json";
 import Lottie from "lottie-react";
 import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const { signInUser } = use(AuthContexts);
 
   const handlelogin = (e) => {
@@ -18,7 +22,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         alert(error);

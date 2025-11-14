@@ -1,9 +1,10 @@
 import React, { use } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router";
+import { Link, Navigate, replace, useNavigate } from "react-router";
 import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser } = use(AuthContexts);
 
   const handleresister = (e) => {
@@ -18,6 +19,7 @@ const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         alert("user created");
+        navigate("/", replace(true));
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -11,6 +11,7 @@ import Login from "../pages/Login";
 import AddressPage from "../components/AddressPage";
 import Contact from "../pages/Contact";
 import FoodDetails from "../components/FoodDetails";
+import PrivateRoute from "../routes/PrivateRoute";
 // import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
@@ -25,7 +26,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/allfoods",
-        Component: AllFoods,
+        element: (
+          <PrivateRoute>
+            <AllFoods></AllFoods>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/allfoods"),
       },
 
       {

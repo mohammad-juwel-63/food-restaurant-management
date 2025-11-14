@@ -3,11 +3,15 @@ import FoodCard from "./FoodCard";
 
 const TopSelling = () => {
   const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/allfoods")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => {
+        setFoods(data);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -16,10 +20,15 @@ const TopSelling = () => {
         Top Selling Food
       </h2>
 
+      {loading && (
+        <p className="text-center text-gray-500 text-lg mt-6">
+          Loading foods...
+        </p>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
-        {foods.map((food) => (
-          <FoodCard key={food._id} food={food} />
-        ))}
+        {!loading &&
+          foods.map((food) => <FoodCard key={food._id} food={food} />)}
       </div>
     </div>
   );
