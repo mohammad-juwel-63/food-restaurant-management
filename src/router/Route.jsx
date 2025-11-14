@@ -10,6 +10,7 @@ import Resister from "../pages/Resister";
 import Login from "../pages/Login";
 import AddressPage from "../components/AddressPage";
 import Contact from "../pages/Contact";
+import FoodDetails from "../components/FoodDetails";
 // import { RouterProvider } from "react-router/dom";
 
 const router = createBrowserRouter([
@@ -55,6 +56,12 @@ const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/details/:id",
+        Component: FoodDetails,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allfoods/${params.id}`),
       },
     ],
   },

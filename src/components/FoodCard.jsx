@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const FoodCard = ({ food }) => {
   const {
@@ -79,14 +80,11 @@ const FoodCard = ({ food }) => {
             <div className="text-xs text-gray-500">Origin: {food_origin}</div>
           </div>
 
-          <motion.button
-            whileTap={{ scale: 0.96 }}
-            whileHover={{ translateY: -3 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="px-4 py-2 rounded-xl bg-rose-500 text-white font-semibold shadow-md"
-          >
-            View
-          </motion.button>
+          <Link to={`/details/${_id}`}>
+            <button className="px-4 py-2 rounded-xl bg-rose-500 text-white font-semibold shadow-md">
+              View
+            </button>
+          </Link>
         </div>
       </div>
     </motion.div>
