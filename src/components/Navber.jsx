@@ -10,7 +10,6 @@ const Navbar = () => {
       <div className="text-3xl font-bold tracking-wide">
         Restro<span className="text-[#EA6A12]">Biz</span>
       </div>
-
       <div className="flex flex-wrap justify-center gap-4 mt-3 lg:mt-0">
         <Link
           to="/"
@@ -38,7 +37,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Auth Section */}
       <div className="flex items-center gap-3 mt-3 lg:mt-0">
         {!user ? (
           <>
@@ -56,40 +54,26 @@ const Navbar = () => {
             </Link>
           </>
         ) : (
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
+          <div className="relative dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full ring ring-[#EA6A12] ring-offset-base-100 ring-offset-2">
-                <img src={user?.photoURL} alt="User" />
+                <img
+                  src={user?.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
+                  alt="User"
+                />
               </div>
-              <p>{user.displayName}</p>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-40 right-0"
             >
-              <Link to="/myfooditem">
-                <li>
-                  <a className="font-semibold">My Food Items</a>
-                </li>
-              </Link>
-              <Link to="/additem">
-                <li>
-                  <a className="font-semibold">Add Item</a>
-                </li>
-              </Link>
-              <Link to="/myordered">
-                <li>
-                  <a className="font-semibold">My Ordered</a>
-                </li>
-              </Link>
+              <li className="px-2 py-1 text-gray-700 font-semibold">
+                {user.displayName || "User"}
+              </li>
               <li>
                 <button
                   onClick={logOut}
-                  className="font-semibold text-red-500 hover:text-red-600"
+                  className="w-full text-red-500 font-semibold hover:text-red-600"
                 >
                   Log Out
                 </button>

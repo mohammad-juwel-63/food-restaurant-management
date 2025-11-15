@@ -17,33 +17,24 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // createUser
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //update data
-
   const updateDisplayData = (updatedata) => {
     return updateProfile(auth.currentUser, updatedata);
   };
-
-  // google login
 
   const googleLogIn = () => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
 
-  // signInuser
-
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-
-  // onauth
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -56,13 +47,9 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  // signout
-
   const logOut = () => {
     return signOut(auth)
-      .then(() => {
-        alert("signout succesfully");
-      })
+      .then(() => {})
       .catch((error) => {
         alert(error);
       });
@@ -78,7 +65,10 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleLogIn,
   };
-  return <AuthContexts value={datas}>{children}</AuthContexts>;
+
+  return (
+    <AuthContexts.Provider value={datas}>{children}</AuthContexts.Provider>
+  );
 };
 
 export default AuthProvider;

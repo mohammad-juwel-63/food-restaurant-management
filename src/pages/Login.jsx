@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import lotti from "../assets/loginlotti.json";
 import Lottie from "lottie-react";
 import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,30 +16,30 @@ const Login = () => {
   const handlegoogle = () => {
     googleLogIn()
       .then((result) => {
-        console.log(result.user);
+        toast.success(`Welcome ${result.user.displayName || "User"}!`);
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error.message);
       });
   };
 
   const handlelogin = (e) => {
     e.preventDefault();
-
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
 
     signInUser(email, password)
       .then((result) => {
+        toast.success(`Welcome back ${result.user.displayName || "User"}!`);
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error.message);
       });
   };
+
   return (
     <div>
       <Helmet>

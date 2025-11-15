@@ -1,7 +1,8 @@
 import React, { use } from "react";
 import { Helmet } from "react-helmet";
-import { Link, Navigate, replace, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,24 +19,24 @@ const Register = () => {
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
 
         updateDisplayData({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
+
+            toast.success("Account created successfully!");
+
+            navigate("/", { replace: true });
           })
           .catch((error) => {
-            alert(error);
+            toast.error(error.message);
           });
-        alert("user created");
-        navigate("/", replace(true));
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorCode, errorMessage);
+        toast.error(error.message);
       });
   };
+
   return (
     <div>
       <Helmet>
