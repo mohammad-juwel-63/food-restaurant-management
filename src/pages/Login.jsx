@@ -10,7 +10,18 @@ const Login = () => {
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
-  const { signInUser } = use(AuthContexts);
+  const { signInUser, googleLogIn } = use(AuthContexts);
+
+  const handlegoogle = () => {
+    googleLogIn()
+      .then((result) => {
+        console.log(result.user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -38,6 +49,7 @@ const Login = () => {
         <div className="w-96 mr-5">
           <Lottie animationData={lotti} loop={true} />
         </div>
+
         <div className="w-full max-w-md bg-white shadow-lg rounded-xl border border-gray-100 p-8">
           <h2 className="text-3xl font-semibold text-center text-[#EA6A12] mb-2">
             Welcome Back
@@ -90,6 +102,24 @@ const Login = () => {
               Login
             </button>
           </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-6">
+            <div className="flex-grow h-px bg-gray-300"></div>
+            <span className="px-2 text-sm text-gray-500">or</span>
+            <div className="flex-grow h-px bg-gray-300"></div>
+          </div>
+
+          <button
+            onClick={handlegoogle}
+            className="w-full btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 flex items-center justify-center gap-2"
+          >
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              className="w-5 h-5"
+            />
+            Continue with Google
+          </button>
 
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}

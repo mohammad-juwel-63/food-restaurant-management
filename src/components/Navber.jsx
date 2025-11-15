@@ -63,8 +63,9 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full ring ring-[#EA6A12] ring-offset-base-100 ring-offset-2">
-                <img src={user.photoURL} alt="User" />
+                <img src={user?.photoURL} alt="User" />
               </div>
+              <p>{user.displayName}</p>
             </div>
             <ul
               tabIndex={0}

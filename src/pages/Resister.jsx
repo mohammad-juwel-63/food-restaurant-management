@@ -5,19 +5,28 @@ import { AuthContexts } from "../contexts/AuthContexts/AuthContexts";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser } = use(AuthContexts);
+  const { createUser, updateDisplayData, setUser } = use(AuthContexts);
 
   const handleresister = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const name = form.name.value;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    // const photo = form.photo.value;
+    const photo = form.photo.value;
 
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        console.log(user);
+
+        updateDisplayData({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            alert(error);
+          });
         alert("user created");
         navigate("/", replace(true));
       })
